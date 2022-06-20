@@ -22,3 +22,13 @@ Feature: Login's all good
         | unknown_user    | secret_blackFactor    | Username and password do not match any user in this service |
         | unknown_user    | wrong_password | Username and password do not match any user in this service |
         | locked_out_user | secret_blackFactor  | Sorry, this user has been locked out.                       |
+
+    Scenario Outline: Login's with valid credentials
+      Given Danny is on the login page
+      When Danny attempts to login with the following credentials:
+        | username   | password   |
+        | <username> | <password> |
+      Then he should be presented with the error message <message>
+      Examples:
+        | username        | password       | message                                             |
+        | standard_user   | pass_password | Username and password match any user in this service |
