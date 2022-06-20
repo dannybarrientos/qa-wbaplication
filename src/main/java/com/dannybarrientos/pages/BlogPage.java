@@ -23,14 +23,17 @@ public class BlogPage extends PageObject{
     @FindBy(xpath="//h1[@class='heading-3 post-title'")
     public WebElement postTitleArticle;
 
+    @FindBy(xpath="//div[@class='author-name']")
+    public WebElement lblPostbyAutor;
+
     @FindBy(xpath="//div[@class='load-more-btn-wrap']")
     public WebElement btnMoreArticle;
 
     @FindBy(xpath="//div[@class='results']")
-    public WebElement resultadoPaginas;
+    public WebElement lblResultPages;
 
     @FindBy(id="hs-eu-confirmation-button")
-    public WebElement continueCookies;
+    public WebElement btnContinueCookies;
 
     public boolean searchArticle(String s) {
         return foundArticicle(s);
@@ -42,7 +45,7 @@ public class BlogPage extends PageObject{
 
     public boolean foundArticicle(String article){
         if (!searchArticles(article)) {
-            scrooll(resultadoPaginas);
+            scrooll(lblResultPages);
             foundArticicle(article);
             return false;
         } else {
@@ -50,7 +53,7 @@ public class BlogPage extends PageObject{
         }
     }
     public boolean searchArticles(String article) {
-        scrooll(resultadoPaginas);
+        scrooll(lblResultPages);
         btnMoreArticle.click();
         for (int i = 0; i< titlesArticle().size(); i++) {
             if (titlesArticle().get(i).equals(article)) {
@@ -58,7 +61,7 @@ public class BlogPage extends PageObject{
                 return true;
             }
         }
-        System.out.println("the pages = " + resultadoPaginas.getText()+" You have "+ titlesArticle().size()+" article");
+        System.out.println("the pages = " + lblResultPages.getText()+" You have "+ titlesArticle().size()+" article");
         return false;
     }
 
@@ -74,6 +77,10 @@ public class BlogPage extends PageObject{
         return $(stringTitleArticle+s+"')]").getText().equals(s);
     }
     public void cookiesAccepted(){
-        continueCookies.click();
+        btnContinueCookies.click();
+    }
+
+    public boolean postbyAutor(String byAutor) {
+        return lblPostbyAutor.getText().equals(byAutor);
     }
 }

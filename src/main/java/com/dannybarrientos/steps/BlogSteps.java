@@ -23,4 +23,8 @@ public class BlogSteps {
     public boolean shouldArticleOpen(String s) {
         return blog.shouldArticleOpen(s);
     }
+
+    public boolean shouldPostbyAutor(String byAutor) {
+        return blog.postbyAutor(byAutor);
+    }
 }

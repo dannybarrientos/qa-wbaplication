@@ -2,6 +2,7 @@ package com.dannybarrientos.stepdefinitions;
 
 
 import com.dannybarrientos.steps.BlogSteps;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -28,4 +29,10 @@ public class search_by_articlerStepDefinition {
     public void heShouldSeeInformationAboutArticle() {
         assertThat(blog.shouldArticleOpen("What QA automation is all about"));
     }
+
+    @And("he should see by post by author")
+    public void heShouldSeeByPostByAuthor() {
+        assertThat(blog.shouldPostbyAutor("Jahzeel Lopez"));
+    }
+
 }
