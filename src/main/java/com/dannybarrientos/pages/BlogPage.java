@@ -35,6 +35,15 @@ public class BlogPage extends PageObject{
     @FindBy(id="hs-eu-confirmation-button")
     public WebElement btnContinueCookies;
 
+    @FindBy(xpath="//input[@name='Email']")
+    public WebElement inputEmail;
+
+    @FindBy(id="form-newsletter-blog-submit-btn")
+    public WebElement btnSubscribe;
+
+    @FindBy(xpath="//div[@class='mc4wp-response']")
+    public WebElement lblSubscribe;
+
     public boolean searchArticle(String s) {
         return foundArticicle(s);
     }
@@ -82,5 +91,13 @@ public class BlogPage extends PageObject{
 
     public boolean postbyAutor(String byAutor) {
         return lblPostbyAutor.getText().equals(byAutor);
+    }
+
+public void subscribeEmail(String email){
+        inputEmail.sendKeys(email);
+        btnSubscribe.click();
+}
+    public boolean validationMessageSubcribe(String message){
+        return lblSubscribe.getText().equals(message);
     }
 }
