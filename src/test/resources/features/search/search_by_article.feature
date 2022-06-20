@@ -12,6 +12,7 @@ Feature: Search article in the by keyword
       | author        |
       | <author>      |
     Examples:
-      | author        | article                                           |
-      | Jahzeel Lopez |  What QA automation is all about                   |
-      | Sofia Gonzalez|  Why Fintech in Latin America Is Having a Boom     |
+      | author          | article                                           |
+      | Nikolay Nyagolov|  The power of a data architect in business intelligence          |
+      | Vera Varga      |  What QA automation is all about                  |
+      #| Sofia Gonzalez|  Why Fintech in Latin America Is Having a Boom    |
