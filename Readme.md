@@ -1,4 +1,4 @@
-# Project SRS-Software Requirements Specification: WebApplicaiton
+# Project SRS-Software Requirements Specification: WebApplication
 
 This projects allow me to execute test, where it used the different pattern, in this case Page Factory, we wil also connected with Azure DevOps, Where we used module Work Items, Pipeline
 great opportunities
